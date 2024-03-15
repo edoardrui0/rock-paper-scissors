@@ -6,13 +6,14 @@ function getComputerChoice() {
     return randomChoice;
 }
 
+// this creates a conditional to determine if the player is a winner, loser, or if there is a tie 
 function playRound(playerSelection, computerSelection) {
-    if (playerSelection.toLowerCase() == computerSelection.toLowerCase()) {
+    if (playerSelection == computerSelection) {
         return `It's a tie!`
     } else if ( 
-        ( playerSelection.toLowerCase() == `rock` ) && ( computerSelection.toLowerCase() == `paper` ) ||
-        ( playerSelection.toLowerCase() == `paper` ) && ( computerSelection.toLowerCase() == `scissors` ) ||
-        ( playerSelection.toLowerCase() == `scissors` ) && ( computerSelection.toLowerCase() == `rock` )
+        ( playerSelection == `rock` ) && ( computerSelection == `paper` ) ||
+        ( playerSelection == `paper` ) && ( computerSelection == `scissors` ) ||
+        ( playerSelection == `scissors` ) && ( computerSelection == `rock` )
         ) {
         return `You lose`
     } else {
@@ -21,14 +22,26 @@ function playRound(playerSelection, computerSelection) {
 }
 
 
+// const playerSelection = 'scissors'.toLowerCase();
+const computerSelection = getComputerChoice().toLowerCase();
 
-const playerSelection = 'scissors';
-const computerSelection = getComputerChoice();
-
-let choiceArray = ['Rock', 'Paper', 'Scissors'];
-
-console.log(playerSelection)
-console.log(computerSelection)
+// console.log(playerSelection)
+// console.log(computerSelection)
 
 
-console.log(playRound(playerSelection, computerSelection))
+// console.log(playRound(playerSelection, computerSelection))
+
+// this function allows me to play the game in a single round. I haven't figured out how to do multiple rounds just yet
+function playGame() {
+    let userChoice = prompt(`Let's play Rock, Paper, Scissors!`)
+
+    for ( let i=1; i<=5; i++ ) {
+       
+        console.log(`this is the user's choice: ` + userChoice)
+        console.log(`this is the CPU selection: ` + computerSelection)  
+
+        return playRound(userChoice, computerSelection);
+    }
+}
+
+console.log(playGame());

@@ -6,4 +6,29 @@ function getComputerChoice() {
     return randomChoice;
 }
 
-console.log(getComputerChoice())
+function playRound(playerSelection, computerSelection) {
+    if (playerSelection.toLowerCase() == computerSelection.toLowerCase()) {
+        return `It's a tie!`
+    } else if ( 
+        ( playerSelection.toLowerCase() == `rock` ) && ( computerSelection.toLowerCase() == `paper` ) ||
+        ( playerSelection.toLowerCase() == `paper` ) && ( computerSelection.toLowerCase() == `scissors` ) ||
+        ( playerSelection.toLowerCase() == `scissors` ) && ( computerSelection.toLowerCase() == `rock` )
+        ) {
+        return `You lose`
+    } else {
+        return `You win!`
+    }
+}
+
+
+
+const playerSelection = 'scissors';
+const computerSelection = getComputerChoice();
+
+let choiceArray = ['Rock', 'Paper', 'Scissors'];
+
+console.log(playerSelection)
+console.log(computerSelection)
+
+
+console.log(playRound(playerSelection, computerSelection))

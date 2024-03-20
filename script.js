@@ -33,6 +33,7 @@ let cpuScore = 0;
 // playGame() allows me to play the game in the console, while prompting the user for a selection in the game. 
 // There are a total of 100 rounds, but the game will cease if either User or CPU reaches 3 points
 function playGame() {
+    alert(`Hello there! You will be playing Rock, Paper, Scissors against the computer. Whoever wins three rounds wins the game!`)
 
     for ( let i=1; i<=100; i++ ) { 
 
@@ -40,20 +41,20 @@ function playGame() {
         let result = playRound(userChoice, getComputerChoice());
         
         if ( result == `It's a tie!` ) {
-            console.log(`You and the CPU tied. Try again!`)
+            alert(`You and the CPU tied. Try again!`)
         } else if ( result == `You lose` ) {
             cpuScore++
-            console.log(`You have lost to the CPU. You have ${userScore} points. The CPU has ${cpuScore} points`)
+            alert(`You have lost to the CPU. You have ${userScore} points. The CPU has ${cpuScore} points`)
         } else if ( result == `You win!` ) {
             userScore++
-            console.log(`You have won against the CPU. You have ${userScore} points. The CPU has ${cpuScore} points`)
+            alert(`You have won against the CPU. You have ${userScore} points. The CPU has ${cpuScore} points`)
         }
 
         if ( cpuScore == 3 ) {
-            console.log(`You have lost. Tough luck`)
+            alert(`You have lost. Tough luck`)
             { break; }
         } else if ( userScore == 3 ) {
-            console.log(`You have won! Go celebrate or something, idk`)
+            alert(`You have won! Go celebrate or something, idk`)
             { break; }
         } 
     }

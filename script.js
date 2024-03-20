@@ -31,17 +31,66 @@ const computerSelection = getComputerChoice().toLowerCase();
 
 // console.log(playRound(playerSelection, computerSelection))
 
+// This will keep track of scores
+let userScore = 0;
+let cpuScore = 0;
+
 // this function allows me to play the game in a single round. I haven't figured out how to do multiple rounds just yet
 function playGame() {
+
+    // commented out lines 62-93 to try something new
+    // this new method below allows me to keep track of score, need to work on loops
     let userChoice = prompt(`Let's play Rock, Paper, Scissors!`)
+    let result = playRound(userChoice, computerSelection);
 
-    for ( let i=1; i<=5; i++ ) {
-       
-        console.log(`this is the user's choice: ` + userChoice)
-        console.log(`this is the CPU selection: ` + computerSelection)  
-
-        return playRound(userChoice, computerSelection);
+    if ( result == `It's a tie!` ) {
+        console.log(`You and the CPU tied. Try again!`)
+    } else if ( result == `You lose` ) {
+        cpuScore++
+        console.log(`You have lost to the CPU. You have ${userScore} points. The CPU has ${cpuScore} points`)
+    } else if ( result == `You win!` ) {
+        userScore++
+        console.log(`You have won against the CPU. You have ${userScore} points. The CPU has ${cpuScore} points`)
     }
+
+    if ( cpuScore == 5 ) {
+        console.log(`You have lost. Tough luck`)
+    } else if ( userScore == 5 ) {
+        console.log(`You have won! Go celebrate or something, idk`)
+    }
+
+    // function keepScore() {
+        // let userScore = 0;
+        // let cpuScore = 0;
+    
+    //     for ( let i=0; i<5; i++) {
+    //         userScore++;
+    //         cpuScore++;
+    //     }
+    // }
+
+    // let userChoice = prompt(`Let's play Rock, Paper, Scissors!`)
+    // let userScore = 0;
+    // let cpuScore = 0;
+
+    // for ( let i=1; i<=5; i++ ) {
+        
+    //     let result = playRound(userChoice, computerSelection);
+       
+    //     if ( result == `It's a tie!` ) {
+    //         console.log(`You and the CPU have tied. Try again!`)
+    //     }  else if ( result == `You lose` ) {
+    //         console.log(`You have lost to the CPU. A point for the CPU!`)
+    //         cpuScore++
+    //         console.log(cpuScore)
+    //     }  else if ( result == `You win!` ) {
+    //         console.log(`You have won! A point for you!`)
+    //         userScore++
+    //         console.log(userScore)
+    //     }
+
+        
+    // }
 }
 
 console.log(playGame());
